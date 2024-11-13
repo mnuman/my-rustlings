@@ -18,5 +18,5 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "cargo install rustlings && rustlings init",
   // Start process when container has been started
-  "postStartCommand": "cd rustlings/ && rustlings"
+  "postStartCommand": "cd rustlings/ && rustlings --manual-run"
 }
