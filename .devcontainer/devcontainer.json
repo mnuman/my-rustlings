@@ -1,0 +1,22 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/rust
+{
+	"name": "Rust",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/rust:1-1-bullseye",
+
+	// Use 'mounts' to make the cargo cache persistent in a Docker Volume.
+	"mounts": [
+		{
+			"source": "devcontainer-cargo-cache-${devcontainerId}",
+			"target": "/usr/local/cargo",
+			"type": "volume"
+		}
+	],
+	// https://github.com/microsoft/vscode-remote-release/issues/2485#issuecomment-1722584736
+	"runArgs": ["--name", "rustlings"],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "cargo install rustlings && rustlings init",
+  // Start process when container has been started
+  "postStartCommand": "cd rustlings/ && rustlings"
+}
